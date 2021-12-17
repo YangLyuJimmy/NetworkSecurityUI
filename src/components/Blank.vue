@@ -13,5 +13,25 @@
 
 export default{
 
+  data: () => ({
+    testMessage : "",
+  }),
+  methods: {
+    sendRequest() {
+      fetch('/test', {
+        method:'GET',
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then( response => response.json())
+      .then(data => {
+        this.testMessage = data.msg;
+        console.log("I get the response!" + data.msg);
+      })
+    }
+  }
+
 }
 </script>
