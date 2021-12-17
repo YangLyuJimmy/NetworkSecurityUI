@@ -6,12 +6,13 @@
   </v-card>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from "vue";
 
 export default class Blank extends Vue{
-  testMessage = "";
-  sendRequest(): void {
+
+  testMessage = "123";
+  sendRequest() {
     fetch('/test', {
       method:'GET',
       mode: 'cors',
@@ -21,13 +22,10 @@ export default class Blank extends Vue{
     })
     .then(response => response.json())
     .then( function(response) {
+      //this.testMessage = response;
       console.log("I get the response!" + response)
     })
-}
+  }
 
 }
 </script>
-
-<style>
-
-</style>
