@@ -10,25 +10,8 @@
 </template>
 
 <script>
-import Vue from "vue";
 
-export default class Blank extends Vue{
-
-  testMessage = "123";
-  sendRequest() {
-    fetch('/test', {
-      method:'GET',
-      mode: 'cors',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-    .then(response => response.json())
-    .then( function(response) {
-      //this.testMessage = response;
-      console.log("I get the response!" + response)
-    })
-  }
+export default{
 
 }
 </script>
