@@ -1,11 +1,29 @@
 <template>
   <v-card max-width=400px>
     <v-card-title> This is currently a blank page! </v-card-title>
+    <v-btn @click="sendRequest">Test</v-btn>
+    Test message is : {{ testMessage }}
   </v-card>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from "vue";
+
+export default class Blank extends Vue{
+  testMessage = "";
+  sendRequest(): void {
+    fetch('/test', {
+      method:'GET',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => response.json())
+    .then( function(response) {
+      console.log("I get the response!" + response)
+    })
+}
 
 }
 </script>
